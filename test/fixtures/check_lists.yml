@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  is_finished: false
+  finished_at: 2015-01-26 00:11:53
+  card_id: 
+
+two:
+  name: MyString
+  is_finished: false
+  finished_at: 2015-01-26 00:11:53
+  card_id: 
