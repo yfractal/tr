@@ -37,8 +37,7 @@ gem 'devise'
 # https://github.com/gregbell/active_admin
 # The administration framework for Ruby on Rails applications.
 # http://activeadmin.info
-gem 'activeadmin', git: "https://github.com/gregbell/active_admin.git"
-gem 'active_skin'
+gem 'activeadmin', '~> 1.0.0.pre1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
