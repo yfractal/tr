@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125161903) do
+ActiveRecord::Schema.define(version: 20150316161201) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -66,5 +66,28 @@ ActiveRecord::Schema.define(version: 20150125161903) do
 
   add_index "check_lists", ["card_id"], name: "index_check_lists_on_card_id", using: :btree
 
+  create_table "companies", force: :cascade do |t|
+    t.string   "name",               limit: 255
+    t.string   "contacts",           limit: 255
+    t.string   "contacts_telephone", limit: 255
+    t.text     "desc",               limit: 65535
+    t.string   "site",               limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.text     "desc",            limit: 65535
+    t.integer  "company_id",      limit: 4
+    t.string   "play_site",       limit: 255
+    t.string   "production_site", limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "projects", ["company_id"], name: "index_projects_on_company_id", using: :btree
+
   add_foreign_key "check_lists", "cards"
+  add_foreign_key "projects", "companies"
 end

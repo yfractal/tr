@@ -5,15 +5,27 @@ zh-CN:
     code: 唯一编码
     name: 名称
     telephone: 电话
+    desc: 描述
     id: 序号
   activerecord:
     models:
       admin_user: 管理员
       card: 需求
       check_list: 任务
+      company: 公司
+      project: 项目
     attributes:
+      company:
+        contacts: 联系人
+        contacts_telephone: 联系人手机
+        site: 官网
+      project:
+        company_id: 所属公司
+        company: 所属公司
+        play_site: 演示地址
+        production_site: 生产地址
       card:
-        name: 所属会议
+        name: 需求名称
         description: 描述
         finished_hour: 完成小时数
         checklists: 任务列表
