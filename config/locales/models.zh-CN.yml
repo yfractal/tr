@@ -29,6 +29,8 @@ zh-CN:
         description: 描述
         finished_hour: 完成小时数
         checklists: 任务列表
+        project: 所属项目
+        project_id: 所属项目
       check_list:
         name: 名称
         finished_hour: 完成小时数

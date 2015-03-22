@@ -1,10 +1,9 @@
 ActiveAdmin.register Card do
 
-  permit_params :name, :description, :finished_hour, checklists_attributes: [:_destroy,
-    :id, :name, :is_finished, :finished_at, :finished_hour]
+  permit_params :name, :description, :finished_hour, :project_id, checklists_attributes: [:_destroy, :id, :name, :is_finished, :finished_at, :finished_hour]
 
-    filter :name
-    filter :created_at
+  filter :name
+  filter :created_at
 
   index do
     selectable_column
@@ -37,6 +36,7 @@ ActiveAdmin.register Card do
 
   form do |f|
     f.inputs do
+      f.input :project
       f.input :name
       f.input :description
       f.input :finished_hour
