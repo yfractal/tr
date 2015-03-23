@@ -3,12 +3,14 @@ ActiveAdmin.register Card do
   permit_params :name, :description, :finished_hour, :project_id, checklists_attributes: [:_destroy, :id, :name, :is_finished, :finished_at, :finished_hour]
 
   filter :name
+  filter :project
   filter :created_at
 
   index do
     selectable_column
     id_column
     column :name
+    column :project
     column :finished_hour
     column :created_at
     column :updated_at
