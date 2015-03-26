@@ -11,6 +11,6 @@ class Project < ActiveRecord::Base
   end
 
   def total_hours
-    CheckList.where(card_id: card_ids).sum(:finished_hour)
+    CheckList.where(card_id: card_ids).sum(:finished_hour) || 0
   end
 end
