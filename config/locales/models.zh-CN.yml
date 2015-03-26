@@ -24,6 +24,9 @@ zh-CN:
         company: 所属公司
         play_site: 演示地址
         production_site: 生产地址
+        hour_fee: 时薪
+        total_amount: 总费用
+        total_hours: 总工时
       card:
         name: 需求名称
         description: 描述

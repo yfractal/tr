@@ -3,5 +3,14 @@ class Project < ActiveRecord::Base
 
   belongs_to :company
   has_many :cards
-  validates :company, :name, :desc, presence: true
+  validates :hour_fee, :company, :name, :desc, presence: true
+
+  # 总费用
+  def total_amount
+    total_hours * hour_fee
+  end
+
+  def total_hours
+    CheckList.where(card_id: card_ids).sum(:finished_hour)
+  end
 end
