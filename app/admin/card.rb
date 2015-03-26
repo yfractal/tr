@@ -1,6 +1,6 @@
 ActiveAdmin.register Card do
 
-  permit_params :name, :description, :finished_hour, :project_id, checklists_attributes: [:_destroy, :id, :name, :is_finished, :finished_at, :finished_hour]
+  permit_params :name, :is_done, :description, :finished_hour, :project_id, checklists_attributes: [:_destroy, :id, :name, :is_finished, :finished_at, :finished_hour]
 
   filter :name
   filter :project
@@ -11,6 +11,7 @@ ActiveAdmin.register Card do
     id_column
     column :name
     column :project
+    column :is_done
     column :finished_hour
     column :created_at
     column :updated_at

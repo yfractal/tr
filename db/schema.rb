@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326143316) do
+ActiveRecord::Schema.define(version: 20150326145320) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -50,9 +50,10 @@ ActiveRecord::Schema.define(version: 20150326143316) do
     t.string   "name",          limit: 255
     t.text     "description",   limit: 65535
     t.float    "finished_hour", limit: 24
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "project_id",    limit: 4
+    t.boolean  "is_done",       limit: 1,     default: false
   end
 
   add_index "cards", ["project_id"], name: "index_cards_on_project_id", using: :btree
