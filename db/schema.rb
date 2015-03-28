@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326145320) do
+ActiveRecord::Schema.define(version: 20150328165504) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -45,6 +45,20 @@ ActiveRecord::Schema.define(version: 20150326145320) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "attachments", force: :cascade do |t|
+    t.integer  "viewable_id",             limit: 4
+    t.string   "viewable_type",           limit: 255
+    t.integer  "attachment_width",        limit: 4
+    t.integer  "attachment_height",       limit: 4
+    t.integer  "attachment_file_size",    limit: 4
+    t.integer  "position",                limit: 4
+    t.string   "attachment_content_type", limit: 255
+    t.string   "attachment_file_name",    limit: 255
+    t.string   "type",                    limit: 75
+    t.datetime "attachment_updated_at"
+    t.text     "alt",                     limit: 65535
+  end
 
   create_table "cards", force: :cascade do |t|
     t.string   "name",          limit: 255
