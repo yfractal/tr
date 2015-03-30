@@ -25,6 +25,18 @@ ActiveAdmin.register Project do
       row :total_hours
       row :total_amount
     end
+
+    panel "需求列表" do
+      paginated_collection(pro.cards.page(params[:page]).per(30)) do
+        table_for(collection) do
+          Card.attribute_names.each do |attr_name|
+            next if attr_name == "project_id"
+            column Card.human_attribute_name(attr_name), attr_name
+          end
+        end
+      end
+    end
+
   end
 
 
