@@ -4,18 +4,43 @@ ActiveAdmin.register Card do
 
   filter :name
   filter :project
+  filter :is_done
   filter :created_at
+
+  batch_action :done, confirm: "你确认完成吗？" do |ids|
+    cards = collection.where(id: ids)
+    cards.update_all(is_done: true)
+    redirect_to :back
+  end
+
+  member_action :done do
+    resource.done
+    response do |format|
+      format.js
+    end
+  end
+  member_action :undone do
+    resource.undone
+    response do |format|
+      format.js
+    end
+  end
 
   index do
     selectable_column
-    id_column
     column :name
     column :project
     column :is_done
     column :finished_hour
     column :created_at
     column :updated_at
-    actions
+    actions do |card|
+      if card.is_done?
+        link_to "重新开始", undone_admin_card_path(card), remote: true, id: "undone-#{card.id}", data: {confirm: "确认重新开始吗？"}
+      else
+        link_to "完成", done_admin_card_path(card), remote: true, id: "done-#{card.id}", data: {confirm: "确认完成此需求吗？"}
+      end
+    end
   end
 
   show do |card|
@@ -43,6 +68,7 @@ ActiveAdmin.register Card do
       f.input :name
       f.input :description
       f.input :finished_hour
+      f.input :is_done
     end
 
     f.inputs "任务列表" do

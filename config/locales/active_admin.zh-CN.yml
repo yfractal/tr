@@ -61,6 +61,8 @@
       selection_toggle_explanation: "(切换选择)"
       link: "新建一个"
       action_label: "%{title} 被选中"
+      labels:
+        done: 完成
     comments:
       body: "内容"
       author: "作者"

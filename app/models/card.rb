@@ -8,4 +8,12 @@ class Card < ActiveRecord::Base
 
   validates :project, :name, :description, :finished_hour, presence: true
 
+  def done
+    update_attribute(:is_done, true)
+  end
+
+  def undone
+    update_attribute(:is_done, false)
+  end
+
 end
