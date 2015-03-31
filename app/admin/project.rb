@@ -39,6 +39,8 @@ ActiveAdmin.register Project do
       end
       row :total_hours
       row :total_amount
+      row :used_hours
+      row :due
     end
 
     panel "需求列表" do

@@ -8,6 +8,8 @@ class Card < ActiveRecord::Base
 
   validates :project, :name, :description, :finished_hour, presence: true
 
+  scope :dones, ->{where(is_done: true)}
+
   def done
     update_attribute(:is_done, true)
   end

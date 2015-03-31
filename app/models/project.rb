@@ -13,4 +13,13 @@ class Project < ActiveRecord::Base
   def total_hours
     CheckList.where(card_id: card_ids).sum(:finished_hour)
   end
+
+  def used_hours
+    cards.dones.sum(:finished_hour)
+  end
+
+  # 欠款
+  def due
+    used_hours * hour_fee
+  end
 end
