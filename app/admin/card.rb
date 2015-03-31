@@ -66,9 +66,9 @@ ActiveAdmin.register Card do
     f.inputs do
       f.input :project
       f.input :name
-      f.input :description
       f.input :finished_hour
       f.input :is_done
+      f.cktext_area :description, {ckeditor: {language: "zh-CN"}}
     end
 
     f.inputs "任务列表" do

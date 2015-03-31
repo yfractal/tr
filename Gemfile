@@ -41,6 +41,8 @@ gem 'activeadmin', '~> 1.0.0.pre1'
 
 gem 'paper_trail', '~> 4.0.0.beta'
 
+gem 'ckeditor'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
