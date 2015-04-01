@@ -16,7 +16,7 @@ ActiveAdmin.register Project do
 
   index do
     column :name do |pro|
-      link_to pro.name, admin_card_path(pro)
+      link_to pro.name, admin_project_path(pro)
     end
     column :company
     column :hour_fee
