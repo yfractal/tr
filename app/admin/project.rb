@@ -4,12 +4,13 @@ ActiveAdmin.register Project do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params "name", "desc", "company_id", "play_site", "production_site", "hour_fee"
+  permit_params "name", "desc", "company_id", "play_site", "production_site", "hour_fee", "is_done"
 
   filter :name
   filter :company
   filter :hour_fee
   filter :total_hours
+  filter :is_done
   filter :created_at
   filter :updated_at
 
@@ -21,8 +22,8 @@ ActiveAdmin.register Project do
     column :hour_fee
     column :total_hours
     column :total_amount
+    column :is_done
     column :created_at
-    column :updated_at
     actions do |pro|
       link_to "需求", admin_cards_path("q[project_id_eq]" => pro.id)
     end

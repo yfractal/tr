@@ -30,6 +30,7 @@ zh-CN:
         total_hours: 总工时
         due: 应收款
         used_hours: 已使用工时
+        is_done: 是否完成
       card:
         name: 需求名称
         description: 描述
