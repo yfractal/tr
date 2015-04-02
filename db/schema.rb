@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401050511) do
+ActiveRecord::Schema.define(version: 20150402010853) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -78,8 +78,9 @@ ActiveRecord::Schema.define(version: 20150401050511) do
     t.datetime "finished_at"
     t.float    "finished_hour", limit: 24
     t.integer  "card_id",       limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.text     "description",   limit: 65535
   end
 
   add_index "check_lists", ["card_id"], name: "index_check_lists_on_card_id", using: :btree

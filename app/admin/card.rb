@@ -1,6 +1,6 @@
 ActiveAdmin.register Card do
 
-  permit_params :name, :is_done, :description, :finished_hour, :project_id, checklists_attributes: [:_destroy, :id, :name, :is_finished, :finished_at, :finished_hour]
+  permit_params :name, :is_done, :description, :finished_hour, :project_id, checklists_attributes: [:_destroy, :id, :name, :is_finished, :finished_at, :finished_hour, :description]
 
   filter :name
   filter :project
@@ -75,6 +75,7 @@ ActiveAdmin.register Card do
       f.has_many :checklists, heading: false, allow_destroy: true do |checklist|
         checklist.semantic_errors *checklist.object.errors.keys
         checklist.input :name
+        checklist.input :description, input_html: {rows: 3, cols: 25}
         checklist.input :finished_hour
         checklist.input :finished_at
         checklist.input :is_finished

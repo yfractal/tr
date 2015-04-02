@@ -40,6 +40,7 @@ zh-CN:
         project_id: 所属项目
       check_list:
         name: 名称
+        description: 描述
         finished_hour: 完成小时数
         finished_at: 完成时间
         is_finished: 是否完成
