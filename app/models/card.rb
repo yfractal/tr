@@ -23,7 +23,8 @@ class Card < ActiveRecord::Base
   private
 
     def init_finished_hour
-      self.finished_hour = checklists.sum(:finished_hour)
+      # 此处不用 sum(:finished_hour)的原因：如果是新建时，无效，只是一个new_record.
+      self.finished_hour = checklists.collect(&:finished_hour).sum
     end
 
 end
