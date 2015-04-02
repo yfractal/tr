@@ -8,6 +8,8 @@ class Card < ActiveRecord::Base
 
   validates :project, :name, :description, :finished_hour, presence: true
 
+  before_validation :init_finished_hour
+
   scope :dones, ->{where(is_done: true)}
 
   def done
@@ -17,5 +19,11 @@ class Card < ActiveRecord::Base
   def undone
     update_attribute(:is_done, false)
   end
+
+  private
+
+    def init_finished_hour
+      self.finished_hour = checklists.sum(:finished_hour)
+    end
 
 end

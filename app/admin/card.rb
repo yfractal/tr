@@ -1,6 +1,6 @@
 ActiveAdmin.register Card do
 
-  permit_params :name, :is_done, :description, :finished_hour, :project_id, checklists_attributes: [:_destroy, :id, :name, :is_finished, :finished_at, :finished_hour, :description]
+  permit_params :name, :is_done, :description, :project_id, checklists_attributes: [:_destroy, :id, :name, :is_finished, :finished_at, :finished_hour, :description]
 
   filter :name
   filter :project
@@ -66,7 +66,6 @@ ActiveAdmin.register Card do
     f.inputs do
       f.input :project
       f.input :name
-      f.input :finished_hour
       f.input :is_done
       f.cktext_area :description, {ckeditor: {language: "zh-CN"}}
     end
